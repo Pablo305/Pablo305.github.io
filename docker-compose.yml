@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  dcs-website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dcs-website
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    stdin_open: true
+    tty: true
