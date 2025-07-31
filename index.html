@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCS App Suite - Revolutionary AI-Powered Enterprise Ecosystem</title>
+    <meta name="description" content="$2.8M AI-powered business solutions with 15+ providers, 99.5% uptime, and proven enterprise-grade performance">
+    
+    <!-- Retro-Futuristic Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --ff-blue: #1E3A8A;
+            --ff-blue-light: #3B82F6;
+            --ff-blue-glow: #60A5FA;
+            --ff-orange: #EA580C;
+            --ff-orange-light: #FB923C;
+            --ff-orange-glow: #FDBA74;
+            --ff-silver: #94A3B8;
+            --ff-silver-light: #CBD5E1;
+            --ff-silver-glow: #E2E8F0;
+            --ff-cosmic: #5B21B6;
+            --ff-cosmic-light: #8B5CF6;
+            --ff-cosmic-glow: #C4B5FD;
+            --space-black: #0B0F19;
+            --space-darker: #111827;
+            --space-dark: #1F2937;
+            --space-medium: #374151;
+            --space-light: #6B7280;
+            --energy-blue: #00D9FF;
+            --energy-purple: #8B5CF6;
+            --energy-green: #10B981;
+            --energy-orange: #FF6B35;
+            --energy-pink: #EC4899;
+            --font-future: 'Orbitron', 'Exo 2', 'Rajdhani', monospace;
+            --font-tech: 'Share Tech Mono', 'JetBrains Mono', monospace;
+        }
+
+        body {
+            font-family: var(--font-future);
+            background: linear-gradient(135deg, var(--space-black) 0%, var(--space-darker) 50%, var(--space-black) 100%);
+            color: var(--ff-silver-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .ff-title {
+            font-family: var(--font-future);
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, var(--ff-blue-glow), var(--energy-blue), var(--ff-cosmic-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.5));
+        }
+
+        .ff-subtitle {
+            font-family: var(--font-tech);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            color: var(--ff-silver);
+            text-shadow: 0 0 10px rgba(148, 163, 184, 0.3);
+        }
+
+        .ff-tech-text {
+            font-family: var(--font-tech);
+            color: var(--energy-blue);
+            text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+        }
+
+        .ff-hologram {
+            background: linear-gradient(45deg, var(--energy-blue), var(--ff-cosmic-light), var(--energy-green));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: hologram-shift 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5));
+        }
+
+        @keyframes hologram-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .glass {
+            background: rgba(31, 41, 55, 0.8);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            border-radius: 20px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(96, 165, 250, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-color: rgba(96, 165, 250, 0.4);
+        }
+
+        .ff-hex-pattern {
+            background-image: 
+                linear-gradient(30deg, rgba(96, 165, 250, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(96, 165, 250, 0.1) 87.5%, rgba(96, 165, 250, 0.1)),
+                linear-gradient(150deg, rgba(96, 165, 250, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(96, 165, 250, 0.1) 87.5%, rgba(96, 165, 250, 0.1));
+            background-size: 80px 140px;
+            background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+            animation: hex-drift 30s linear infinite;
+        }
+
+        @keyframes hex-drift {
+            0% { background-position: 0 0, 0 0, 40px 70px, 40px 70px; }
+            100% { background-position: 80px 140px, 80px 140px, 120px 210px, 120px 210px; }
+        }
+
+        .ff-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .ff-particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--energy-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 6px var(--energy-blue);
+            animation: particle-float 8s linear infinite;
+        }
+
+        @keyframes particle-float {
+            0% { opacity: 0; transform: translateY(100vh) translateX(0); }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(-100px) translateX(100px); }
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--ff-blue), var(--ff-blue-light));
+            border: 2px solid var(--energy-blue);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-family: var(--font-future);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 217, 255, 0.3);
+        }
+
+        .coming-soon {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coming-soon::after {
+            content: 'LAUNCHING SOON';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--energy-blue);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-family: var(--font-tech);
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+            border: 2px solid var(--energy-blue);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen ff-hex-pattern">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="ff-title text-2xl">DCS APP SUITE</div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="ff-tech-text hover:text-blue-300 transition-colors">HOME</a>
+                    <a href="#applications" class="ff-tech-text hover:text-blue-300 transition-colors">APPLICATIONS</a>
+                    <a href="#metrics" class="ff-tech-text hover:text-blue-300 transition-colors">METRICS</a>
+                    <a href="#contact" class="ff-tech-text hover:text-blue-300 transition-colors">CONTACT</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative">
+        <div class="ff-particles">
+            <div class="ff-particle" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="ff-particle" style="left: 20%; animation-delay: 1s;"></div>
+            <div class="ff-particle" style="left: 30%; animation-delay: 2s;"></div>
+            <div class="ff-particle" style="left: 40%; animation-delay: 3s;"></div>
+            <div class="ff-particle" style="left: 50%; animation-delay: 4s;"></div>
+            <div class="ff-particle" style="left: 60%; animation-delay: 5s;"></div>
+            <div class="ff-particle" style="left: 70%; animation-delay: 6s;"></div>
+            <div class="ff-particle" style="left: 80%; animation-delay: 7s;"></div>
+            <div class="ff-particle" style="left: 90%; animation-delay: 8s;"></div>
+        </div>
+        
+        <div class="text-center max-w-6xl mx-auto px-6 relative z-10">
+            <h1 class="text-6xl md:text-9xl font-black mb-6">
+                <span class="ff-title ff-hologram">DCS</span><br>
+                <span class="ff-title text-white">APP SUITE</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl ff-subtitle mb-8 max-w-4xl mx-auto leading-relaxed">
+                <span class="ff-tech-text">REVOLUTIONARY AI-POWERED ECOSYSTEM</span><br>
+                Transforming industries with <span class="text-green-400 font-semibold">15+ AI providers</span>, 
+                <span class="text-yellow-400 font-semibold">$2.8M portfolio value</span>, and 
+                <span class="ff-hologram font-semibold">enterprise-grade intelligence</span>
+            </p>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-5xl mx-auto">
+                <div class="glass p-6 text-center">
+                    <div class="text-3xl font-bold ff-hologram mb-1">$2.8M</div>
+                    <div class="text-sm ff-tech-text">Total Portfolio Value</div>
+                </div>
+                <div class="glass p-6 text-center">
+                    <div class="text-3xl font-bold ff-hologram mb-1">7</div>
+                    <div class="text-sm ff-tech-text">Applications Suite</div>
+                </div>
+                <div class="glass p-6 text-center">
+                    <div class="text-3xl font-bold ff-hologram mb-1">15+</div>
+                    <div class="text-sm ff-tech-text">AI Providers Integrated</div>
+                </div>
+                <div class="glass p-6 text-center">
+                    <div class="text-3xl font-bold ff-hologram mb-1">85%</div>
+                    <div class="text-sm ff-tech-text">Average Completion</div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="#applications" class="btn-primary text-lg px-10 py-5">
+                    EXPLORE ECOSYSTEM →
+                </a>
+                <a href="#metrics" class="btn-primary text-lg px-10 py-5" style="background: transparent; border: 2px solid var(--ff-cosmic-light); color: var(--ff-cosmic-light);">
+                    TECHNICAL SPECS →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section id="applications" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-bold mb-6">
+                    <span class="ff-title ff-hologram">ENTERPRISE APPLICATIONS</span>
+                </h2>
+                <p class="text-xl ff-subtitle max-w-4xl mx-auto">
+                    <span class="ff-tech-text">COMPREHENSIVE AI-POWERED ECOSYSTEM</span><br>
+                    Revolutionary solutions engineered for enterprise-scale operations with 
+                    <span class="text-green-400">real performance metrics</span> and 
+                    <span class="text-yellow-400">proven ROI</span>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 coming-soon">
+                <!-- Application Cards Will Go Here -->
+                <div class="glass p-8 h-96">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl flex items-center justify-center text-4xl">🧠</div>
+                        <div>
+                            <h3 class="text-2xl font-bold ff-title text-white">KAAI Platform</h3>
+                            <p class="text-sm ff-tech-text">90% Complete - $850K Valuation</p>
+                        </div>
+                    </div>
+                    <p class="ff-subtitle mb-6">Enterprise-Grade AI Content Optimization with 10+ provider integration</p>
+                    <div class="grid grid-cols-3 gap-4 mb-6 bg-black/20 rounded-xl p-4 border border-blue-500/20">
+                        <div class="text-center">
+                            <div class="text-lg font-bold ff-hologram">99.94%</div>
+                            <div class="text-xs ff-tech-text">Uptime</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-lg font-bold ff-hologram">89.2/100</div>
+                            <div class="text-xs ff-tech-text">Quality</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-lg font-bold ff-hologram">420/hr</div>
+                            <div class="text-xs ff-tech-text">Speed</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass p-8 h-96">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-green-600 to-teal-600 rounded-2xl flex items-center justify-center text-4xl">📞</div>
+                        <div>
+                            <h3 class="text-2xl font-bold ff-title text-white">CallMart Intelligence</h3>
+                            <p class="text-sm ff-tech-text">85% Complete - $720K Valuation</p>
+                        </div>
+                    </div>
+                    <p class="ff-subtitle mb-6">Enterprise Call Center Intelligence with 95.3% accuracy & 588 processed calls</p>
+                    <div class="grid grid-cols-3 gap-4 mb-6 bg-black/20 rounded-xl p-4 border border-blue-500/20">
+                        <div class="text-center">
+                            <div class="text-lg font-bold ff-hologram">95.3%</div>
+                            <div class="text-xs ff-tech-text">Accuracy</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-lg font-bold ff-hologram">350K+</div>
+                            <div class="text-xs ff-tech-text">Processed</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-lg font-bold ff-hologram">23%</div>
+                            <div class="text-xs ff-tech-text">Improvement</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass p-8 h-96">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center text-4xl">🌐</div>
+                        <div>
+                            <h3 class="text-2xl font-bold ff-title text-white">ISP Analytics</h3>
+                            <p class="text-sm ff-tech-text">90% Complete - $650K Valuation</p>
+                        </div>
+                    </div>
+                    <p class="ff-subtitle mb-6">AI-Powered ISP Comparison Platform covering 50K+ ZIP codes</p>
+                    <div class="grid grid-cols-3 gap-4 mb-6 bg-black/20 rounded-xl p-4 border border-blue-500/20">
+                        <div class="text-center">
+                            <div class="text-lg font-bold ff-hologram">50K+</div>
+                            <div class="text-xs ff-tech-text">Coverage</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-lg font-bold ff-hologram">99.2%</div>
+                            <div class="text-xs ff-tech-text">Accuracy</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-lg font-bold ff-hologram">34.7%</div>
+                            <div class="text-xs ff-tech-text">Conversion</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass p-8 h-96">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl flex items-center justify-center text-4xl">🚚</div>
+                        <div>
+                            <h3 class="text-2xl font-bold ff-title text-white">EasyMovee Platform</h3>
+                            <p class="text-sm ff-tech-text">80% Complete - $480K Valuation</p>
+                        </div>
+                    </div>
+                    <p class="ff-subtitle mb-6">AI-Powered Moving Platform with 80% stress reduction & comprehensive CRM</p>
+                    <div class="grid grid-cols-3 gap-4 mb-6 bg-black/20 rounded-xl p-4 border border-blue-500/20">
+                        <div class="text-center">
+                            <div class="text-lg font-bold ff-hologram">80%</div>
+                            <div class="text-xs ff-tech-text">Stress Reduction</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-lg font-bold ff-hologram">60%</div>
+                            <div class="text-xs ff-tech-text">Efficiency</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-lg font-bold ff-hologram">95.3%</div>
+                            <div class="text-xs ff-tech-text">Success</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section id="metrics" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        <span class="ff-title ff-hologram">TECHNICAL EXCELLENCE</span>
+                    </h2>
+                    <p class="text-xl ff-subtitle mb-8 leading-relaxed">
+                        <span class="ff-tech-text">ENTERPRISE-GRADE ARCHITECTURE</span><br>
+                        Built with cutting-edge technology and designed for massive scale operations, 
+                        delivering quantifiable results and proven ROI across all systems.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">✓</div>
+                            <span class="ff-subtitle text-lg">Enterprise-grade scalability</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">✓</div>
+                            <span class="ff-subtitle text-lg">Multi-AI provider integration</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">✓</div>
+                            <span class="ff-subtitle text-lg">Real-time analytics dashboard</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">✓</div>
+                            <span class="ff-subtitle text-lg">Advanced security protocols</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">✓</div>
+                            <span class="ff-subtitle text-lg">Microservices architecture</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">✓</div>
+                            <span class="ff-subtitle text-lg">Cloud-native deployment</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass p-8">
+                    <h3 class="text-2xl font-bold ff-title text-white mb-6">ECOSYSTEM METRICS</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center border-b border-blue-500/20 pb-2">
+                            <span class="ff-tech-text">Total Development Investment</span>
+                            <span class="text-2xl font-bold text-green-400">$1.04M+</span>
+                        </div>
+                        
+                        <div class="flex justify-between items-center border-b border-blue-500/20 pb-2">
+                            <span class="ff-tech-text">AI Providers Integrated</span>
+                            <span class="text-2xl font-bold text-green-400">15+</span>
+                        </div>
+                        
+                        <div class="flex justify-between items-center border-b border-blue-500/20 pb-2">
+                            <span class="ff-tech-text">Average System Uptime</span>
+                            <span class="text-2xl font-bold text-yellow-400">99.6%</span>
+                        </div>
+                        
+                        <div class="flex justify-between items-center border-b border-blue-500/20 pb-2">
+                            <span class="ff-tech-text">Total Addressable Market</span>
+                            <span class="text-2xl font-bold ff-hologram">$17.7B</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-blue-500/30 bg-black/30 rounded-xl p-6">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold ff-hologram mb-2">$2.8M</div>
+                            <div class="ff-tech-text">Conservative Portfolio Valuation</div>
+                            <div class="text-sm text-green-400 mt-2 ff-subtitle">Based on real development metrics & market analysis</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative ff-hex-pattern">
+        <div class="ff-particles">
+            <div class="ff-particle" style="left: 15%; animation-delay: 0s;"></div>
+            <div class="ff-particle" style="left: 35%; animation-delay: 2s;"></div>
+            <div class="ff-particle" style="left: 55%; animation-delay: 4s;"></div>
+            <div class="ff-particle" style="left: 75%; animation-delay: 6s;"></div>
+        </div>
+        
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+            <h2 class="text-5xl md:text-6xl font-bold text-white mb-6">
+                <span class="ff-title ff-hologram">READY TO TRANSFORM</span><br>
+                <span class="ff-title text-white">YOUR ENTERPRISE?</span>
+            </h2>
+            <p class="text-xl ff-subtitle mb-12 leading-relaxed max-w-4xl mx-auto">
+                <span class="ff-tech-text">ENTERPRISE-GRADE AI ECOSYSTEM</span><br>
+                Experience the power of our comprehensive AI-driven solutions designed to scale 
+                with <span class="text-green-400">proven metrics</span> and 
+                <span class="text-yellow-400">real ROI</span>
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-8 justify-center">
+                <a href="https://github.com/Pablo305/dcs-app-suite-website" class="btn-primary text-lg px-10 py-5">
+                    VIEW COMPLETE ECOSYSTEM →
+                </a>
+                <a href="mailto:contact@dcs-suite.com" class="btn-primary text-lg px-10 py-5" style="background: transparent; border: 2px solid var(--ff-cosmic-light); color: var(--ff-cosmic-light);">
+                    TECHNICAL DEEP DIVE →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-blue-500/20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="ff-title text-2xl mb-4">DCS APP SUITE</div>
+            <p class="ff-subtitle mb-4">Revolutionary AI-Powered Enterprise Ecosystem</p>
+            <div class="flex justify-center space-x-6">
+                <a href="https://github.com/Pablo305/dcs-app-suite-website" class="ff-tech-text hover:text-blue-300 transition-colors">GitHub</a>
+                <a href="#applications" class="ff-tech-text hover:text-blue-300 transition-colors">Applications</a>
+                <a href="#metrics" class="ff-tech-text hover:text-blue-300 transition-colors">Metrics</a>
+                <a href="#contact" class="ff-tech-text hover:text-blue-300 transition-colors">Contact</a>
+            </div>
+            <div class="mt-6 pt-6 border-t border-blue-500/20">
+                <p class="text-sm text-gray-400">© 2025 DCS App Suite. Built with cutting-edge AI technology.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(31, 41, 55, 0.95)';
+            } else {
+                nav.style.background = 'rgba(31, 41, 55, 0.8)';
+            }
+        });
+    </script>
+</body>
+</html>
