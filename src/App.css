@@ -88,7 +88,8 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.5));
+  /* Reduced drop shadow for better readability */
+  filter: drop-shadow(0 2px 4px rgba(96, 165, 250, 0.2));
 }
 
 .ff-subtitle {
@@ -96,13 +97,14 @@ body {
   font-weight: 300;
   letter-spacing: 0.05em;
   color: var(--ff-silver);
-  text-shadow: 0 0 10px rgba(148, 163, 184, 0.3);
+  /* Removed text shadow for better readability */
 }
 
 .ff-tech-text {
   font-family: var(--font-tech);
   color: var(--energy-blue);
-  text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+  /* Subtle text shadow for readability */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Gradient Text Utilities */
@@ -111,7 +113,8 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.3));
+  /* Minimal drop shadow */
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
 }
 
 .gradient-text-success {
@@ -119,7 +122,8 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.3));
+  /* Minimal drop shadow */
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
 }
 
 .gradient-text-warning {
@@ -127,7 +131,8 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.3));
+  /* Minimal drop shadow */
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
 }
 
 /* Retro-Futuristic Glass Morphism */
@@ -401,15 +406,16 @@ body {
   100% { background-position: 80px 140px, 80px 140px, 120px 210px, 120px 210px; }
 }
 
-/* Holographic Text Effects */
+/* Holographic Text Effects - Improved Readability */
 .ff-hologram {
   background: linear-gradient(45deg, var(--energy-blue), var(--ff-cosmic-light), var(--energy-green));
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: hologram-shift 4s ease-in-out infinite;
-  filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5));
+  /* Reduced animation speed and removed drop shadow */
+  animation: hologram-shift 8s ease-in-out infinite;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
 }
 
 @keyframes hologram-shift {
