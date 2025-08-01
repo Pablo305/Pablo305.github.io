@@ -124,7 +124,7 @@
         /* Buttons */
         .btn-primary {
             background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-            color: white;
+            color: white !important;
             padding: 12px 28px;
             border-radius: 8px;
             font-weight: 600;
@@ -135,16 +135,18 @@
             text-decoration: none;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
         
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+            color: white !important;
         }
         
         .btn-secondary {
             background: white;
-            color: #1e40af;
+            color: #1e40af !important;
             border: 2px solid #1e40af;
             padding: 12px 28px;
             border-radius: 8px;
@@ -154,11 +156,12 @@
             align-items: center;
             gap: 8px;
             text-decoration: none;
+            cursor: pointer;
         }
         
         .btn-secondary:hover {
             background: #1e40af;
-            color: white;
+            color: white !important;
             transform: translateY(-2px);
         }
         
@@ -278,6 +281,8 @@
             const [scrollProgress, setScrollProgress] = useState(0);
             const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
             const [activeTab, setActiveTab] = useState('inbound');
+            const [selectedApp, setSelectedApp] = useState(null);
+            const [appModalTab, setAppModalTab] = useState('overview');
             
             useEffect(() => {
                 const handleScroll = () => {
@@ -452,6 +457,140 @@
                 { name: 'Travel & Hospitality', icon: '✈️', clients: '80+' }
             ];
             
+            // AI Apps Portfolio
+            const aiApps = [
+                {
+                    id: 'kaai',
+                    name: 'KAAI Platform',
+                    emoji: '🧠',
+                    tagline: 'AI-Powered Content Intelligence at Scale',
+                    description: 'Enterprise AI Content Intelligence platform integrating 9+ AI providers with advanced semantic SEO optimization.',
+                    longDescription: 'KAAI Platform represents the pinnacle of AI-driven content generation and optimization. Built with enterprise scalability in mind, it seamlessly orchestrates multiple AI providers including OpenAI GPT-4, Claude 3, Google Gemini, and specialized models.',
+                    status: 'Production Ready',
+                    completion: 90,
+                    value: '$850K',
+                    features: [
+                        'Multi-AI Provider Integration (9+ providers)',
+                        'Advanced Semantic SEO Optimization',
+                        'Real-time Content Analytics Dashboard',
+                        'Entity Salience Scoring Engine',
+                        'PAA (People Also Ask) Generation',
+                        'Automated Content Quality Scoring'
+                    ],
+                    metrics: {
+                        'Content Generated': '2.5M+ pieces',
+                        'Quality Score': '94.7%',
+                        'SEO Improvement': '+340%',
+                        'Time to Publish': '3.2 min'
+                    },
+                    gradient: 'from-primary-600 to-primary-800'
+                },
+                {
+                    id: 'callmart',
+                    name: 'CallMart Intelligence',
+                    emoji: '📞',
+                    tagline: 'Transform Call Center Operations with AI',
+                    description: 'Advanced call center analytics platform with 95.3% accuracy in sentiment analysis and performance tracking.',
+                    longDescription: 'CallMart Intelligence revolutionizes call center operations by providing real-time AI-powered insights into every customer interaction.',
+                    status: 'Production Ready',
+                    completion: 85,
+                    value: '$650K',
+                    features: [
+                        'Real-time Call Analytics & Monitoring',
+                        'Advanced Sentiment Analysis (95.3% accuracy)',
+                        'Performance Tracking & Optimization',
+                        'Automated Quality Assurance Scoring',
+                        'Agent Coaching Recommendations',
+                        'Multi-language Support (47 languages)'
+                    ],
+                    metrics: {
+                        'Calls Analyzed': '12M+',
+                        'Handle Time': '-23%',
+                        'CSAT Improvement': '+31%',
+                        'Agent Productivity': '+45%'
+                    },
+                    gradient: 'from-accent-teal-500 to-accent-teal-700'
+                },
+                {
+                    id: 'isp-analytics',
+                    name: 'ISP Analytics',
+                    emoji: '🌐',
+                    tagline: 'Internet Service Intelligence Platform',
+                    description: 'Comprehensive ISP intelligence platform with provider comparison, speed analytics, and coverage mapping.',
+                    longDescription: 'ISP Analytics provides businesses and consumers with unprecedented visibility into internet service options and performance metrics.',
+                    status: 'Beta Testing',
+                    completion: 90,
+                    value: '$720K',
+                    features: [
+                        'Provider Comparison Engine',
+                        'Real-time Speed Analytics',
+                        'Interactive Coverage Mapping',
+                        'Cost Optimization Tools',
+                        'Network Quality Monitoring',
+                        'API for Real Estate Integration'
+                    ],
+                    metrics: {
+                        'Providers Tracked': '2,847',
+                        'Speed Tests': '45M+',
+                        'Coverage Accuracy': '99.2%',
+                        'Cost Savings': 'Avg 34%'
+                    },
+                    gradient: 'from-primary-500 to-accent-teal-600'
+                },
+                {
+                    id: 'easymovee',
+                    name: 'EasyMovee',
+                    emoji: '🚚',
+                    tagline: 'Intelligent Moving Services Management',
+                    description: 'AI-powered moving services platform with route optimization and inventory management.',
+                    longDescription: 'EasyMovee transforms the moving industry with AI-powered logistics optimization and customer experience enhancement.',
+                    status: 'In Development',
+                    completion: 80,
+                    value: '$580K',
+                    features: [
+                        'AI Route Optimization',
+                        'Digital Inventory Management',
+                        'Dynamic Pricing Engine',
+                        'Real-time Tracking',
+                        'Customer Portal & App',
+                        'Mover Verification System'
+                    ],
+                    metrics: {
+                        'Moves Completed': '45K+',
+                        'Cost Reduction': '22%',
+                        'On-Time Delivery': '97.8%',
+                        'Damage Reduction': '67%'
+                    },
+                    gradient: 'from-accent-orange-500 to-accent-orange-700'
+                },
+                {
+                    id: 'dualchat',
+                    name: 'Dual Chat AI',
+                    emoji: '💬',
+                    tagline: 'Multi-AI Orchestration System',
+                    description: 'Intelligent AI routing system with context preservation and advanced fallback mechanisms.',
+                    longDescription: 'Dual Chat AI represents the next evolution in conversational AI, intelligently orchestrating multiple AI providers.',
+                    status: 'Production Ready',
+                    completion: 85,
+                    value: '$490K',
+                    features: [
+                        'Multi-AI Provider Routing',
+                        'Context Preservation System',
+                        'Real-time Performance Monitoring',
+                        'Cost Optimization Engine',
+                        'Conversation Analytics',
+                        'A/B Testing Framework'
+                    ],
+                    metrics: {
+                        'Messages Processed': '125M+',
+                        'Response Time': '0.8s',
+                        'Uptime': '99.99%',
+                        'Cost Reduction': '67%'
+                    },
+                    gradient: 'from-primary-400 to-primary-700'
+                }
+            ];
+            
             // AI Solutions
             const aiSolutions = [
                 {
@@ -492,6 +631,7 @@
                                     <a href="#process" className="text-gray-700 hover:text-primary-600 transition font-medium">Process</a>
                                     <a href="#technology" className="text-gray-700 hover:text-primary-600 transition font-medium">Technology</a>
                                     <a href="#industries" className="text-gray-700 hover:text-primary-600 transition font-medium">Industries</a>
+                                    <a href="#ai-solutions" className="text-gray-700 hover:text-primary-600 transition font-medium">AI Solutions</a>
                                     <a href="#contact" className="btn-primary text-sm">Get Started</a>
                                 </div>
                                 
@@ -518,6 +658,7 @@
                                 <a href="#process" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 hover:text-primary-600 transition font-medium py-2">Process</a>
                                 <a href="#technology" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 hover:text-primary-600 transition font-medium py-2">Technology</a>
                                 <a href="#industries" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 hover:text-primary-600 transition font-medium py-2">Industries</a>
+                                <a href="#ai-solutions" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 hover:text-primary-600 transition font-medium py-2">AI Solutions</a>
                                 <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="btn-primary w-full justify-center">Get Started</a>
                             </div>
                         </div>
@@ -763,6 +904,204 @@
                             </div>
                         </div>
                     </section>
+                    
+                    {/* AI Apps Portfolio Section */}
+                    <section id="ai-solutions" className="py-20 bg-gradient-to-br from-gray-50 to-primary-50">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="text-center mb-16">
+                                <h2 className="text-4xl font-bold mb-4 text-gray-900">
+                                    AI-Powered <span className="gradient-text">Solutions Portfolio</span>
+                                </h2>
+                                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                                    Our suite of intelligent applications revolutionizes business operations 
+                                    with cutting-edge AI technology
+                                </p>
+                            </div>
+                            
+                            <div className="grid lg:grid-cols-3 gap-8">
+                                {aiApps.slice(0, 3).map((app) => (
+                                    <div 
+                                        key={app.id} 
+                                        className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-shadow cursor-pointer overflow-hidden group"
+                                        onClick={() => setSelectedApp(app)}
+                                    >
+                                        <div className="p-8">
+                                            <div className="text-5xl mb-4">{app.emoji}</div>
+                                            <h3 className="text-2xl font-bold text-gray-900 mb-2">{app.name}</h3>
+                                            <p className="text-lg text-primary-600 font-semibold mb-4">{app.tagline}</p>
+                                            <p className="text-gray-600 mb-6">{app.description}</p>
+                                            
+                                            <div className="space-y-3">
+                                                {app.keyFeatures.slice(0, 3).map((feature, idx) => (
+                                                    <div key={idx} className="flex items-start gap-3">
+                                                        <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                        </svg>
+                                                        <span className="text-sm text-gray-700">{feature}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            
+                                            <div className="mt-6 pt-6 border-t border-gray-100">
+                                                <div className="flex items-center justify-between">
+                                                    <div className="text-sm text-gray-600">
+                                                        <span className="font-semibold text-gray-900">Perfect for:</span>
+                                                        <br />
+                                                        {app.targetAudience[0]}
+                                                    </div>
+                                                    <svg className="w-6 h-6 text-primary-600 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            
+                            <div className="grid lg:grid-cols-2 gap-8 mt-8">
+                                {aiApps.slice(3).map((app) => (
+                                    <div 
+                                        key={app.id} 
+                                        className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-shadow cursor-pointer overflow-hidden group"
+                                        onClick={() => setSelectedApp(app)}
+                                    >
+                                        <div className="p-8">
+                                            <div className="flex items-start gap-6">
+                                                <div className="text-5xl">{app.emoji}</div>
+                                                <div className="flex-1">
+                                                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{app.name}</h3>
+                                                    <p className="text-lg text-primary-600 font-semibold mb-3">{app.tagline}</p>
+                                                    <p className="text-gray-600 mb-4">{app.description}</p>
+                                                    
+                                                    <div className="flex flex-wrap gap-2">
+                                                        {app.technologies.slice(0, 4).map((tech, idx) => (
+                                                            <span key={idx} className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm">
+                                                                {tech}
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                                <svg className="w-6 h-6 text-primary-600 transform group-hover:translate-x-2 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            
+                            <div className="text-center mt-12">
+                                <p className="text-lg text-gray-600 mb-6">
+                                    Discover how our AI solutions can transform your business operations
+                                </p>
+                                <a href="#contact" className="btn-primary">
+                                    Explore AI Solutions
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    {/* AI App Modal */}
+                    {selectedApp && (
+                        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" onClick={() => setSelectedApp(null)}>
+                            <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+                                <div className="p-8">
+                                    <div className="flex items-start justify-between mb-6">
+                                        <div className="flex items-center gap-4">
+                                            <div className="text-5xl">{selectedApp.emoji}</div>
+                                            <div>
+                                                <h2 className="text-3xl font-bold text-gray-900">{selectedApp.name}</h2>
+                                                <p className="text-lg text-primary-600 font-semibold">{selectedApp.tagline}</p>
+                                            </div>
+                                        </div>
+                                        <button 
+                                            onClick={() => setSelectedApp(null)}
+                                            className="p-2 hover:bg-gray-100 rounded-lg transition"
+                                        >
+                                            <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    
+                                    <p className="text-lg text-gray-600 mb-8">{selectedApp.description}</p>
+                                    
+                                    {/* Key Features */}
+                                    <div className="mb-8">
+                                        <h3 className="text-xl font-bold text-gray-900 mb-4">Key Features</h3>
+                                        <div className="grid md:grid-cols-2 gap-4">
+                                            {selectedApp.keyFeatures.map((feature, idx) => (
+                                                <div key={idx} className="flex items-start gap-3">
+                                                    <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                    </svg>
+                                                    <span className="text-gray-700">{feature}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    
+                                    {/* Benefits */}
+                                    <div className="mb-8">
+                                        <h3 className="text-xl font-bold text-gray-900 mb-4">Business Benefits</h3>
+                                        <div className="grid md:grid-cols-2 gap-4">
+                                            {selectedApp.benefits.map((benefit, idx) => (
+                                                <div key={idx} className="bg-primary-50 rounded-lg p-4">
+                                                    <h4 className="font-semibold text-gray-900 mb-1">{benefit.title}</h4>
+                                                    <p className="text-sm text-gray-600">{benefit.description}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    
+                                    {/* Technologies */}
+                                    <div className="mb-8">
+                                        <h3 className="text-xl font-bold text-gray-900 mb-4">Technologies</h3>
+                                        <div className="flex flex-wrap gap-2">
+                                            {selectedApp.technologies.map((tech, idx) => (
+                                                <span key={idx} className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm">
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    
+                                    {/* Target Audience */}
+                                    <div className="mb-8">
+                                        <h3 className="text-xl font-bold text-gray-900 mb-4">Perfect For</h3>
+                                        <div className="space-y-2">
+                                            {selectedApp.targetAudience.map((audience, idx) => (
+                                                <div key={idx} className="flex items-center gap-2">
+                                                    <svg className="w-4 h-4 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 1.414L10.586 9.5H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
+                                                    </svg>
+                                                    <span className="text-gray-700">{audience}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    
+                                    {/* CTA */}
+                                    <div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl p-6 text-white">
+                                        <h3 className="text-xl font-bold mb-2">Ready to Get Started?</h3>
+                                        <p className="mb-4">Transform your business with {selectedApp.name} today.</p>
+                                        <div className="flex flex-col sm:flex-row gap-4">
+                                            <a href="#contact" className="btn-primary bg-white text-primary-700 hover:bg-gray-100 justify-center">
+                                                Request Demo
+                                            </a>
+                                            <a href="tel:844-335-2784" className="btn-secondary text-white border-white hover:bg-white hover:text-primary-700 justify-center">
+                                                Call 844-335-2784
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                     
                     {/* CTA Section */}
                     <section className="py-20 bg-gradient-to-r from-primary-600 to-primary-800">
