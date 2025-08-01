@@ -197,6 +197,9 @@
         @media (min-width: 768px) {
             .mobile-menu {
                 display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                pointer-events: none !important;
             }
             .mobile-menu-button {
                 display: none !important;
@@ -356,6 +359,9 @@
                         setMobileMenuOpen(false);
                     }
                 };
+                
+                // Initial check
+                handleResize();
                 
                 window.addEventListener('resize', handleResize);
                 return () => window.removeEventListener('resize', handleResize);
@@ -864,8 +870,8 @@
                             </div>
                         </div>
                         
-                        {/* Mobile Menu */}
-                        <div className={`mobile-menu ${mobileMenuOpen ? 'active' : ''}`}>
+                        {/* Mobile Menu - Only render on mobile devices */}
+                        <div className={`mobile-menu md:!hidden ${mobileMenuOpen ? 'active' : ''}`} style={{ display: mobileMenuOpen ? 'block' : 'none' }}>
                             <div className="px-4 py-6 space-y-4">
                                 <a href="#home" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 hover:text-primary-600 transition font-medium py-2">Home</a>
                                 <a href="#services" onClick={() => setMobileMenuOpen(false)} className="block text-gray-700 hover:text-primary-600 transition font-medium py-2">Services</a>
